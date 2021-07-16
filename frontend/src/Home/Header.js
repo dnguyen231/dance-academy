@@ -1,14 +1,15 @@
 import React from 'react';
 import './Header.css';
+import logo from '../photos/logo.png';
 
 function Header()
 {
     return (
         <div className='header'>
             <img 
-                className='header-icon'
-                src="/Users/thuydannguyen/Documents/Courses/Database/Project/DanceAcademy/frontend/src/photos/logo.png"
-
+                className='header__icon'
+                src={logo}
+                alt="logo"
             />
         </div>
     )
