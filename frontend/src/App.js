@@ -1,7 +1,8 @@
 import React, { Fragment, useState, useEffect } from 'react';
 import './App.css';
+import NavBar from './Home/NavBar';
 import Home from './Home/Home';
-import Header from './Home/Header';
+import { BrowserRouter as Router, Route, Switch } from 'react-router-dom';
 
 const App = () => {
     useEffect(() => {
@@ -26,18 +27,10 @@ const App = () => {
     const [apiData, setApiData] = useState([]);
     const [loading, setLoading] = useState(true);
     return (
-        <div className="dance-academy">
-          {/* Home */}
-          <Home />
-              {/* Header */}
-              <Header />
-              {/* Banner */}
-              {/* Photos */}
-              {/* Footer */}
-          {/* Instructors Page */}
-          {/* Schedule */}
-
-        </div>
+        <Router>
+            <NavBar />
+            <Home />
+        </Router>
     );
 };
 
