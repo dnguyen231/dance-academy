@@ -2,6 +2,7 @@ import React, { Fragment, useState, useEffect } from 'react';
 import './App.css';
 import NavBar from './Home/NavBar';
 import Home from './Home/Home';
+import Footer from './Home/Footer';
 import { BrowserRouter as Router, Route, Switch } from 'react-router-dom';
 
 const App = () => {
@@ -30,6 +31,7 @@ const App = () => {
         <Router>
             <NavBar />
             <Home />
+            <Footer />
         </Router>
     );
 };
