@@ -6,8 +6,8 @@ import { useHistory } from "react-router-dom";
 const useForm = (submitForm) => 
 {
     const [values, setValues] = useState({
-        firstname: "",
-        lastname: "",
+        fname: "",
+        lname: "",
         dob: "",
         phone: "",
         address: "",
@@ -35,17 +35,17 @@ const useForm = (submitForm) =>
         let item = values;
         console.log(item);
 
-        // let result = await fetch("", {
-        //     method: 'POST',
-        //     body: JSON.stringify(item),
-        //     headers:{
-        //         "Content-Type":'application/json',
-        //         "Accept": 'application/json'
-        //     }
-        // })
-        // result= await result.json()
+        let result = await fetch("http://localhost:8666/sign-up", {
+            method: 'POST',
+            body: JSON.stringify(item),
+            headers:{
+                "Content-Type":'application/json',
+                "Accept": 'application/json'
+            }
+        })
+        result= await result.json()
         // localStorage.seItem("user-info", JSON.stringify(result))
-        // history.push("/add")
+        history.push("/add")
     };
 
     useEffect(() => {

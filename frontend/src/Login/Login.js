@@ -12,30 +12,30 @@ function Login() {
     const [user, setUser] = useState({ email: "" });
     const [error, setError] = useState("");
 
-    // const history = useHistory();
-    // useEffect(() => {
-    //     if(localStorage.getItem('user-info')) {
-    //         history.push('/add')
-    //     }
-    // }, [])
+    const history = useHistory();
+    useEffect(() => {
+        if(localStorage.getItem('user-info')) {
+            history.push('/add')
+        }
+    }, [])
 
     // verification
     async function Login(details) {
         console.log(details);
 
-        // let item = details
-        // let result = await fetch("", {
-        //     method: 'POST',
-        //     headers: {
-        //         "Content-Type":"application/json",
-        //         "Accept": 'application/json'
-        //     },
-        //     body: JSON.stringify(item)
-        // })
+        let item = details
+        let result = await fetch("http://localhost:8174/login", {
+            method: 'POST',
+            headers: {
+                "Content-Type":"application/json",
+                "Accept": 'application/json'
+            },
+            body: JSON.stringify(item)
+        })
 
-        // result = await result.json();
-        // localStorage.setItem(JSON.stringify(result))
-        // history.pushState("/add")
+        result = await result.json();
+        localStorage.setItem(JSON.stringify(result))
+        history.pushState("/add")
 
 
         if (details.email == adminUser.email && details.password == adminUser.password) {

@@ -3,12 +3,12 @@ export const validation = (values) => {
 
     let errors={};
 
-    if(!values.firstname){
-        errors.firstname="First Name is required.";
+    if(!values.fname){
+        errors.fname="First Name is required.";
     }
 
-    if(!values.lastname){
-        errors.lastname="Last Name is required.";
+    if(!values.lname){
+        errors.lname="Last Name is required.";
     }
 
     if(!values.dob){

@@ -14,13 +14,13 @@ const SignupForm = ({ submitForm }) => {
                 <form className="form__wrapper">
                     <div className="fname">
                         <label className="label">First Name</label>
-                        <input className="input" type="text" name="firstname" value={values.firstname} onChange={handleChange} />
-                        {errors.firstname && <p className="error">{errors.firstname}</p>}
+                        <input className="input" type="text" name="fname" value={values.fname} onChange={handleChange} />
+                        {errors.fname && <p className="error">{errors.fname}</p>}
                     </div>
                     <div className="lname">
                         <label className="label">Last Name</label>
-                        <input className="input" type="text" name="lastname" value={values.lastname} onChange={handleChange} />
-                        {errors.lastname && <p className="error">{errors.lastname}</p>}
+                        <input className="input" type="text" name="lname" value={values.lname} onChange={handleChange} />
+                        {errors.lname && <p className="error">{errors.lname}</p>}
                     </div>
                     <div className="dob">
                         <label className="label">DOB (MM-DD-YYYY)</label>
