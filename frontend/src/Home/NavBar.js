@@ -15,7 +15,10 @@ function NavBar() {
                     <li><a className="active">Schedule</a></li>
                 </Link>
                 <Link to="/login" className="login">
-                    <li>Login/Signup</li>
+                    <li>Login</li>
+                </Link>
+                <Link to="/signup" className="signup">
+                    <li>Signup</li>
                 </Link>
             </ul>
         </nav>

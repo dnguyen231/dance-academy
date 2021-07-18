@@ -1,9 +1,10 @@
 import React from 'react'
+import './Instructors.css'
 
 function Instructors() {
     return (
         <div>
-            Instructors
+            <h1>instructors</h1>
         </div>
     )
 }

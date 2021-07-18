@@ -3,6 +3,10 @@ import './App.css';
 import NavBar from './Home/NavBar';
 import Home from './Home/Home';
 import Footer from './Home/Footer';
+import Instructors from './Instructors/Instructors';
+import Schedule from './Schedule/Schedule';
+import Login from './Login/Login';
+import Signup from './Signup/Signup';
 import { BrowserRouter as Router, Route, Switch } from 'react-router-dom';
 
 const App = () => {
@@ -27,10 +31,29 @@ const App = () => {
     }, []);
     const [apiData, setApiData] = useState([]);
     const [loading, setLoading] = useState(true);
+
+    
+
     return (
         <Router>
             <NavBar />
-            <Home />
+            <Switch>
+                <Route path="/instructors">
+                    <Instructors />
+                </Route>
+                <Route path="/schedule">
+                    <Schedule />
+                </Route>
+                <Route path="/login">
+                    <Login />
+                </Route>
+                <Route path="/signup">
+                    <Signup />
+                </Route>
+                <Route path="/">
+                    <Home />
+                </Route>
+            </Switch>
             <Footer />
         </Router>
     );

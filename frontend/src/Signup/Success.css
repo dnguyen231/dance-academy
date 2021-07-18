@@ -1,0 +1,18 @@
+.form__success {
+    font-size: 25px;
+    text-align: center;
+    padding: 10px;
+}
+
+.app__wrapper2 {
+    color: black;
+    display: flex;
+    font-family: Arial, Helvetica, sans-serif;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.verification {
+    text-align: center;
+}

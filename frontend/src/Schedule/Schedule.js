@@ -3,7 +3,7 @@ import React from 'react'
 function Schedule() {
     return (
         <div>
-            Schedule
+            <h1>Schedule</h1>
         </div>
     )
 }
