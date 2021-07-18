@@ -2,7 +2,7 @@ import React, { useState } from 'react'
 import './LoginForm.css'
 
 function LoginForm({ Login, error }) {
-    const [details, setDetails] = useState({email: "", password: ""});
+    const [details, setDetails] = useState({email: "", password: "", role: ""});
 
     const handleFormSubmit = e => {
         e.preventDefault();
@@ -23,6 +23,10 @@ function LoginForm({ Login, error }) {
                     <div className="password">
                         <label className="label">Password</label>
                         <input className="input" type="password" name="password" id="password" onChange={e => setDetails({...details, password: e.target.value})} />
+                    </div>
+                    <div className="role">
+                        <label className="label">Role (Customer/Instructor)</label>
+                        <input className="input" type="text" name="role" id="role" onChange={e => setDetails({...details, role: e.target.value})} />
                     </div>
                     { (error != "") ? (<div className="error">{error}</div>) : ""}
                     <div>

@@ -4,10 +4,11 @@ import { useHistory } from 'react-router-dom'
 import LoginForm from './LoginForm'
 
 function Login() {
-    const adminUser = {
-        email: "danlily231@gmail.com",
-        password: "admin123"
-    }
+    // const adminUser = {
+    //     email: "danlily231@gmail.com",
+    //     password: "admin123",
+    //     role: "customer"
+    // }
 
     const [user, setUser] = useState({ email: "" });
     const [error, setError] = useState("");
@@ -34,20 +35,20 @@ function Login() {
         })
 
         result = await result.json();
-        localStorage.setItem(JSON.stringify(result))
+        // localStorage.setItem(JSON.stringify(result))
         history.pushState("/add")
 
 
-        if (details.email == adminUser.email && details.password == adminUser.password) {
-            console.log("Logged in!")
+        // if (details.email == adminUser.email && details.password == adminUser.password) {
+        //     console.log("Logged in!")
         
-            setUser({
-                email: details.email,
-            })
-        }else{
-            console.log("Details do not match.")
-            setError("You might have entered a wrong password or a wrong email.")
-        }
+        //     setUser({
+        //         email: details.email,
+        //     })
+        // }else{
+        //     console.log("Details do not match.")
+        //     setError("You might have entered a wrong password or a wrong email.")
+        // }
     }
 
     const Logout = () => {
