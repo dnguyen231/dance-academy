@@ -3,6 +3,12 @@
     flex-direction: column;
     width: 80%;
     font-family: Arial, Helvetica, sans-serif;
+    padding-left: 100px;
+    margin-left: -310px;
+}
+
+.input {
+    width: 400px;
 }
 
 .title {
@@ -10,8 +16,9 @@
     font-size: 30px;
 }
 
-.label {
+.label__ {
     font-style: italic;
+    width: 550px;
 }
 
 .submit {

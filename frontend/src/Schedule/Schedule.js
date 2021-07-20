@@ -1,3 +1,6 @@
+
+import Footer from '../Home/Footer'
+import NavBar from '../Home/NavBar'
 import './Schedule.css';
 import React, { useEffect, useState } from "react";
 import { makeStyles } from '@material-ui/core/styles';
@@ -58,6 +61,8 @@ function Schedule() {
     }
     
     return (
+    <div>
+       <NavBar />
     <Paper className={classes.root}>
       <h2 style={{display: 'flex',  justifyContent:'center', alignItems:'center', height: '20vh'}}>SCHEDULE</h2>
           <Table className={classes.table}>
@@ -97,7 +102,8 @@ function Schedule() {
             </TableBody>
           </Table>
         </Paper>
-        
+        <Footer />
+        </div>
     );
 }
 export default Schedule;

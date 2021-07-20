@@ -1,5 +1,7 @@
 import './Instructors.css';
 import logo from './img.jpeg'; 
+import NavBar from '../Home/NavBar'
+import Footer from '../Home/Footer'
 
 import React, { useEffect, useState } from 'react';
 import { makeStyles } from '@material-ui/core/styles';
@@ -58,6 +60,8 @@ function Instructors() {
     }
     var count = 1;
     return (
+        <div>
+        <NavBar />
         <Grid>
             <Grid item> <h2 style={{display: 'flex',  justifyContent:'center', alignItems:'center', height: '30vh'}}>Meet our instructors!</h2></Grid>
             <GridList cellHeight = {200} cellWidth = {1} spacing={1} padding={20} cols={4}>
@@ -72,6 +76,8 @@ function Instructors() {
             ))}
             </GridList>
         </Grid>
+        <Footer />
+        </div>
     );
 }
 export default Instructors;
