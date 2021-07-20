@@ -24,7 +24,7 @@ const LoginForm = () => {
     );
 
     const handleChange = (event) => {
-        setValues({
+        setLoginValues({
             ...loginValues,
             [event.target.name]: event.target.value,
         });
@@ -60,7 +60,6 @@ const LoginForm = () => {
         // this.setState({
         //     buttonDisabled: true
         // })
-
 
         let item = loginValues;
         console.log(item);
@@ -125,22 +124,6 @@ const LoginForm = () => {
                     <InputField className="input" name="password" type="password" placeholder="password" value={loginValues.password} onChange={handleChange} />
                     <label className="label__">Role (Customer/Instructor)</label>
                     <InputField className="input" name="role" type="role" placeholder="role" value={loginValues.role} onChange={handleChange} />
-                    {/* <div className="email">
-                        <label className="label__">Email</label>
-                        <input className="input" type="email" placeholder="email" value={this.state.email ? this.state.email: ""} onChange={ (val) => this.setInputValue('email', val) } />
-                    </div>
-                    <div className="password">
-                        <label className="label__">Password</label>
-                        <input className="input" type="password" placeholder="password" value={this.state.password ? this.state.password: ""} onChange={ (val) => this.setInputValue('password', val) } />
-                    </div>
-                    <div className="role">
-                        <label className="label__">Role (Customer/Instructor)</label>
-                        <input className="input" type="text" placeholder="role" value={this.state.role ? this.state.role: ""} onChange={ (val) => this.setInputValue('role', val) } />
-                    </div> */}
-                    {/* { (error != "") ? (<div className="error">{error}</div>) : ""} */}
-                    {/* <div>
-                        <button className="submit" onClick={handleFormSubmit}>Sign In</button>
-                    </div> */}
                     <SubmitButton text="Sign in" disabled={this.state.buttonDisabled} onClick={doLogin} />
                 </form>
             </div>
