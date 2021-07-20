@@ -8,6 +8,7 @@ import Schedule from './Schedule/Schedule';
 import Login from './Login/Login';
 import Signup from './Signup/Signup';
 import { BrowserRouter as Router, Route, Switch } from 'react-router-dom';
+import Booking from './Booking/Booking';
 
 const App = () => {
     useEffect(() => {
