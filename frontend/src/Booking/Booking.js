@@ -6,47 +6,39 @@ class Booking extends React.Component {
       this.handleSubmit = this.handleSubmit.bind(this);
       this.state = {
         items: [],
-    };
+        value: ''
+      }
     }
     componentDidMount() {
-      let initialPlanets = [];
-      fetch('http://localhost:8514/schedule')
-          .then(response => {
-              return response.json();
-          }).then(data => {
-          initialPlanets = data.results.map((planet) => {
-              return planet
-          });
-          console.log(initialPlanets);
-          this.setState({
-              planets: initialPlanets,
-          });
-      });
+      fetch('http://localhost:8314/avail-schedule')
+        .then(response => response.json())
+        .then(items => {
+            this.setState({items})
+            console.log(this.state)
+        })
+        .catch(err => console.log(err))
     }
 
-  
     handleSubmit(event) {
       event.preventDefault();
       const data = new FormData(event.target);
       
-      fetch('/api/form-submit-url', {
+      fetch('http://localhost:8314/home/checkout', {
         method: 'POST',
         body: data,
       });
+      console.log(data);
     }
     
     render() {
-      // let classl = this.state.items;
-      //   let classList = classl.map((planet) =>
-      //     <option key={planet.name}>{planet.name}</option>
-      // );
-
       return (
         <form onSubmit={this.handleSubmit}>
-          <label htmlFor="classid">Class ID</label>
-          {/* <select>
-				    {classList}
-			    </select> */}
+          <label htmlFor="classid">Choose your class</label>
+          <select>
+            {this.state.items.map(data => (
+              <option value={data.classid}>{data.name}</option>
+            ))}
+			    </select>
           {/* <input id="classid" name="classid" type="text" /> */}
           <label htmlFor="quantity">Enter your quantity</label>
           <input id="quantity" name="quantity" type="text" />
@@ -56,10 +48,11 @@ class Booking extends React.Component {
                 <option value="Credit">Credit</option>
                 <option value="Debit">Debit</option>
             </select>
-          <button>CONFIRM BOOKING </button>
+          <button> CONFIRM BOOKING </button>
         </form>
       );
     }
   }
 
   export default Booking;
+  // ReactDOM.render(<Booking />, document.getElementById('root'));
