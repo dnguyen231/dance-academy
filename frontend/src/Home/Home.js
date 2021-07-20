@@ -5,10 +5,13 @@ import banner2 from '../photos/banner2.png'
 import row1 from '../photos/row1.png'
 import row2 from '../photos/row2.png'
 import News from './News'
+import NavBar from './NavBar'
+import Footer from './Footer'
 
 function Home() {
     return (
         <div className="home">
+            <NavBar />
            <div className="home__container">
                 <img className="banner" src={banner} alt="banner" />
                 <img className="banner" src={banner2} alt="banner2" />
@@ -17,6 +20,7 @@ function Home() {
                     <News title='SCHEDULE' image={row2} command='SEE MORE' />
                 </div>
            </div>
+           <Footer />
         </div>
     )
 }

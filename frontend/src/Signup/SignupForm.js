@@ -6,7 +6,7 @@ const SignupForm = ({ submitForm }) => {
 
     const {handleChange, handleFormSubmit, values, errors} = useForm(submitForm);
     return (
-        <div className="container">
+        <div className="container__">
             <div className="app__wrapper">
                 <div>
                     <h2 className="title">JOIN NOW!</h2>

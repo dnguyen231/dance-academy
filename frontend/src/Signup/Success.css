@@ -1,3 +1,19 @@
+.__container {
+    display: flex;
+    margin-left: auto;
+    margin-right: auto;
+    width: 35em;
+    height: 50em;
+    background-color: white;
+    color: black;
+    border: 3px solid black;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-top: 30px;
+    margin-bottom: 40px;
+}
+
 .form__success {
     font-size: 25px;
     text-align: center;
@@ -15,4 +31,5 @@
 
 .verification {
     text-align: center;
+    max-width: 300px;
 }
