@@ -45,7 +45,7 @@ const useForm = (submitForm) =>
         })
         result= await result.json()
         // localStorage.seItem("user-info", JSON.stringify(result))
-        history.push("/add")
+        history.push("/")
     };
 
     useEffect(() => {

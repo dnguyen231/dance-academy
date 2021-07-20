@@ -39,6 +39,9 @@ const App = () => {
     return (
         <Router>
             <Switch>
+                <Route path="/booking">
+                    <Booking />
+                </Route>
                 <Route path="/instructors">
                     <Instructors />
                 </Route>

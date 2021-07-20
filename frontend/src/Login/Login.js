@@ -14,35 +14,36 @@ class Login extends React.Component {
     //     role: "customer"
     // }
 
-    async componentDidMount() {
-        try{
-            let res = await fetch('/isLoggedIn', {
-                method: 'post',
-                headers: {
-                    'Accept': 'application/json',
-                    'Content-Type': 'application/json'
-                }
-            });
-            let result = await res.json();
+    // async componentDidMount() {
+    //     try{
+    //         let res = await fetch('http://localhost:8511/login', {
+    //             method: 'POST',
+    //             headers: {
+    //                 'Accept': 'application/json',
+    //                 'Content-Type': 'application/json'
+    //             }
+    //         });
 
-            if(result && result.success) {
-                UserStore.loading = false;
-                UserStore.isLoggedIn = true;
-                UserStore.email = result.email;
-                UserStore.name = result.fname + ' ' + result.lname;
-                UserStore.dob = result.dob;
-                UserStore.phone = result.phone;
-                UserStore.address = result.address;
-            }else{
-                UserStore.loading = false;
-                UserStore.isLoggedIn = false;
-            }
-        }
-        catch(e) {
-            UserStore.loading = false;
-            UserStore.isLoggedIn = false;
-        }
-    }
+    //         let result = await res.json();
+
+    //         if(result && result.success) {
+    //             UserStore.loading = false;
+    //             UserStore.isLoggedIn = true;
+    //             UserStore.email = result.email;
+    //             UserStore.name = result.fname + ' ' + result.lname;
+    //             UserStore.dob = result.dob;
+    //             UserStore.phone = result.phone;
+    //             UserStore.address = result.address;
+    //         }else{
+    //             UserStore.loading = false;
+    //             UserStore.isLoggedIn = false;
+    //         }
+    //     }
+    //     catch(e) {
+    //         UserStore.loading = false;
+    //         UserStore.isLoggedIn = false;
+    //     }
+    // }
 
 
     // const [user, setUser] = useState({ email: "" });

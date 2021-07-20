@@ -42,7 +42,7 @@ function Instructors() {
 
     useEffect(() => {
         setLoading(true);
-        fetch('instructors')
+        fetch('http://localhost:8511/instructors')
         .then((res) => res.json())
         .then((data) => {
             setData(data);

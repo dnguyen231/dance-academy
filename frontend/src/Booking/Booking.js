@@ -10,7 +10,7 @@ class Booking extends React.Component {
     }
     componentDidMount() {
       let initialPlanets = [];
-      fetch('http://localhost:8515/schedule')
+      fetch('http://localhost:8514/schedule')
           .then(response => {
               return response.json();
           }).then(data => {
