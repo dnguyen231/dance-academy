@@ -16,14 +16,12 @@ function Login() {
     return (
         <div className='_signup'>
             <NavBar />
-            { (!UserStore.isLoggedIn && !formIsSubmitted) ? 
+            { (!formIsSubmitted) ? 
                 <LoginForm submitForm={submitForm} /> :
                 <div className="app_">
-                    <NavBar />
                     <div className="container_">
-                        <p>Welcome {UserStore.email}</p>
+                        <h2>Sign In Form Submitted</h2>
                     </div>
-                    <Footer />
                 </div> 
             }
             <Footer />
