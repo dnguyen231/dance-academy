@@ -12,7 +12,7 @@ function ProfileInfo() {
                 <h1>{UserStore.name}</h1>
                 <br />
                 <p>{UserStore.dob}</p>
-                <p>+1 {UserStore.phone}</p>
+                <p>{UserStore.phone}</p>
                 <p>{UserStore.address}</p> 
             </div>
         </div>

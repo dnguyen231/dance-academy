@@ -31,7 +31,7 @@ const useLoginForm = (submitForm) =>
         let item = values;
         console.log(item);
 
-        let result = await fetch("http://localhost:8666/sign-up", {
+        let result = await fetch("http://localhost:5614/login", {
             method: 'POST',
             body: JSON.stringify(item),
             headers:{
@@ -44,6 +44,12 @@ const useLoginForm = (submitForm) =>
         if(result && result.success){
             UserStore.isLoggedIn = true;
             UserStore.email = result.email;
+            UserStore.password = result.password;
+            UserStore.phone = result.phone;
+            UserStore.name = result.fname + ' ' + result.lname;
+            UserStore.dob = result.dob;
+            UserStore.address = result.address;
+            console.log(result.email);
         }
         else if(result && result.success === false)
         {

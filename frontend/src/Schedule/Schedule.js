@@ -38,7 +38,7 @@ function Schedule() {
 
     useEffect(() => {
         setLoading(true);
-        fetch('http://localhost:8514/schedule')
+        fetch('http://localhost:5614/schedule')
         .then((res) => res.json())
         .then((data) => {
             setData(data);
