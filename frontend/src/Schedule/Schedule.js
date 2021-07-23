@@ -4,7 +4,6 @@ import NavBar from '../Home/NavBar'
 import './Schedule.css';
 import React, { useEffect, useState } from "react";
 import { makeStyles } from '@material-ui/core/styles';
-import Grid from '@material-ui/core/Grid';
 import Table from '@material-ui/core/Table';
 import TableBody from '@material-ui/core/TableBody';
 import TableCell from '@material-ui/core/TableCell';
@@ -38,7 +37,7 @@ function Schedule() {
 
     useEffect(() => {
         setLoading(true);
-        fetch('http://localhost:5614/schedule')
+        fetch('http://localhost:5000/schedule')
         .then((res) => res.json())
         .then((data) => {
             setData(data);

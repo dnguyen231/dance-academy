@@ -1,0 +1,121 @@
+<!-- ordereddate, paymenttype, classid, quantity -->
+<!DOCTYPE html>
+<html>
+  <head>
+	<title>Your Class</title>
+	<style>
+		table, th, td {
+		border: 1px solid black;
+		border-collapse: collapse;
+		}
+		th, td {
+		padding: 1px;
+		}
+		th {
+		text-align: left;
+		}
+		input[type=submit] {
+		border: 1px solid #f44c0e;
+		color: #fff;
+		background: tomato;
+		padding: 10px 20px;
+		border-radius: 3px;
+		}
+		input[type=submit]:hover {
+			background: #f44c0e;
+		}
+	</style>
+	<!-- <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css"> -->
+  </head>
+  <body>
+	  <center>
+		<h1>My Class</h1><br>
+		<form accept-charset="UTF-8" action="/dashboard/your-class/update" method="post">
+			<table style="width:100%" id ="order">
+				<tr>
+					<th>Class ID</th>
+					<th>Name</th> 
+					<th>Type</th>
+					<th>Level</th>
+					<th>Genre</th>
+					<th>Availability</th>
+					<th>Date & Time</th>
+					<th>Duration (hours)</th>
+					<th>Individual</th>
+					<th>Room</th>
+					<th>Capacity</th>
+					<th>Total signups</th>
+					<th></th>
+				</tr>
+			</table>
+			<script>
+				fetch('/dashboard/your-class')
+					.then(function (response) {
+						return response.json();
+					})
+					.then(function (data) {
+						appendData(data);
+					})
+					.catch(function (err) {
+						console.log('error: ' + err);
+					});
+				function appendData(data) {
+					var ele = document.getElementById("order");
+					for (var i = 0; i < data.length; i++) {
+						var num = i+1;
+						var today = new Date(); 
+						let year = data[i].datetime.substring(0, 4);
+						let month = data[i].datetime.substring(5, 7);
+						let date = data[i].datetime.substring(8, 10);
+						let time = data[i].datetime.substring(11, 13);
+
+						var current_year = today.getFullYear();
+						var current_month = today.getMonth() + 1;
+						var current_date = today.getDate();
+						// var current_hour = today.getHours();
+						// console.log(year, month, date, time);
+						// console.log(current_year, current_month, current_date);
+						if(year >= current_year && month >= current_month && date >= current_date)
+						{
+							ele.innerHTML = ele.innerHTML +'<tr>'
+							+ '<th>' + num + '. <a href= "/dashboard/your-class/' + data[i].classid + '">'  +data[i].classid +'</a></th>'
+							+ '<input type="text" name="classid" style="display:none" value = ' + data[i].classid + '>'
+							+ '<td> <input type="text" name="name" value = ' + data[i].name + '></td>' 
+							+ '<td> <input type="text" name="type" value = "' + data[i].type + '"></td>' 
+							+ '<td> <input type="text" name="level" value = "' + data[i].level + '"></td>'
+							+ '<td> <input type="text" name="genre" value = "' + data[i].genre + '"></td>'
+							+ '<td> <input style="width:100%" type="text" name="availability" value = "' + data[i].availability + '"></td>' 
+							+ '<td> <input type="text" name="datetime" value = "' + data[i].datetime + '"></td>' 
+							+ '<td> <input  style="width:30%" type="text" name="duration" value = "' + data[i].duration + '"></td>'
+							+ '<td> <input style="width:60%" type="text" name="individual" value = "' + data[i].individual + '"></td>'
+							+ '<td> <input style="width:50%" type="text" name="held" value = "' + data[i].roomid + '"></td>' 
+							+ '<td> <input style="width:30%" type="text" name="capacity" value = "' + data[i].capacity + '"></td>' 
+							+ '<td>' + data[i].total_students + ' students </td>'
+							+ '</td> <input type="submit" value="Update"> </td>'
+							+ '</tr>';
+						}
+						else
+						{
+							ele.innerHTML = ele.innerHTML +'<tr>'
+							+ '<th>' + num + '. <a href= "/dashboard/your-class/' + data[i].classid + '">' +data[i].classid +'</a></th>'
+							+ '<td>' + data[i].name + '</td>' 
+							+ '<td>' + data[i].type + '</td>' 
+							+ '<td>' + data[i].level + '</td>'
+							+ '<td>' + data[i].genre + '</td>'
+							+ '<td>' + data[i].availability + '</td>' 
+							+ '<td>' + data[i].datetime + '</td>' 
+							+ '<td>' + data[i].duration + '</td>'
+							+ '<td>' + data[i].individual + '</td>'
+							+ '<td>' + data[i].roomid + '</td>'
+							+ '<td>' + data[i].capacity + '</td>' 
+							+ '<td>' + data[i].total_students + ' students </td>'
+							+ '</tr>';
+						}
+					}
+				}
+			</script>
+			<br><br>
+		</form>
+	</center>
+  </body>
+</html>

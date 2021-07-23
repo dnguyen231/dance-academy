@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html>
+  <head>
+	<title>Profile</title>
+	<style>
+	input[type=submit] {
+    border: 1px solid #f44c0e;
+    color: #fff;
+    background: tomato;
+    padding: 10px 20px;
+    border-radius: 3px;
+	}
+	input[type=submit]:hover {
+		background: #f44c0e;
+	}
+	</style>
+	<link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
+  </head>
+  <body>
+	<center>
+		<h2> My Profile</h2>
+		<form accept-charset="UTF-8" action="/dashboard/profile" method="post">
+			<div id="profile">
+			</div>
+			<br><br>
+			<script>
+				fetch('/dashboard/info')
+					.then(function (response) {
+						return response.json();
+					})
+					.then(function (data) {
+						appendData(data);
+					})
+					.catch(function (err) {
+						console.log('error: ' + err);
+					});
+				function appendData(data) {
+					var ele = document.getElementById("profile");
+					for (var i = 0; i < data.length; i++) {
+						ele.innerHTML = ele.innerHTML + 
+						'<label> First Name </label> <br>' +
+						'<input class="w3-input w3-border w3-animate-input" style="width:10%; text-align: center;" type="text" name="fname" value = "' + data[i].fname + '"><br><br>' + 
+						'<a> Last Name </a> <br>' +
+						'<input class="w3-input w3-border w3-animate-input" style="width:10%; text-align: center;" type="text" name="lname" value = "' + data[i].lname + '"><br><br>' +
+						'<a> DOB: </a> <br>' +
+						'<input class="w3-input w3-border w3-animate-input" style="width:20%; text-align: center;" type="text" name="dob" value = "' + data[i].dob + '"><br><br>' +
+						'<a> Address </a> <br>' +
+						'<input class="w3-input w3-border w3-animate-input" style="width:20%; text-align: center;" type="text" name="address" value = "' + data[i].address + '"><br><br>' +
+						'<a> Phone </a> <br>' +
+						'<input class="w3-input w3-border w3-animate-input" style="width:20%; text-align: center;" type="text" name="phone" value = "' + data[i].phone + '">'
+					}
+				}
+			</script>
+			<br>
+			<!-- submit button -->
+			<input type="submit" value="Update">
+		</form>
+	</center>
+  </body>
+</html>

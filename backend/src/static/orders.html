@@ -1,0 +1,59 @@
+<!-- ordereddate, paymenttype, classid, quantity -->
+<!DOCTYPE html>
+<html>
+  <head>
+	<title>Order history</title>
+	<style>
+		table, th, td {
+		border: 1px solid black;
+		border-collapse: collapse;
+		}
+		th, td {
+		padding: 5px;
+		}
+		th {
+		text-align: left;
+		}
+	</style>
+  </head>
+  <body>
+		<center>
+			<h2> My Orders </h2><br>
+			<table style="width:100%" id ="order">
+				<tr>
+					<th>Order ID</th>
+					<th>Ordered Date</th> 
+					<th>Quantity</th>
+					<th>Payment</th>
+					<th>Status</th>
+				</tr>
+			</table>
+			<script>
+				fetch('/dashboard/order')
+					.then(function (response) {
+						return response.json();
+					})
+					.then(function (data) {
+						appendData(data);
+					})
+					.catch(function (err) {
+						console.log('error: ' + err);
+					});
+				function appendData(data) {
+					var ele = document.getElementById("order");
+					for (var i = 0; i < data.length; i++) {
+						var num = i+1;
+						ele.innerHTML = ele.innerHTML +'<tr>'
+						+ '<th>' + num + '. <a href= "/dashboard/orders/' + data[i].classid + '">' +data[i].orderid +'</a></th>'
+						+ '<td>' + data[i].ordereddate + '</td>' 
+						+ '<td>' + data[i].quantity + '</td>' 
+						+ '<td>' + data[i].paymenttype + '</td>'
+						+ '<td>' + data[i].status + '</td>'
+						+'</tr>'
+					}
+				}
+			</script>
+	  		<br><br>
+		</center>
+	</body>
+</html>

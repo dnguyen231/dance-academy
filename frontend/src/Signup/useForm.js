@@ -35,7 +35,7 @@ const useForm = (submitForm) =>
         let item = values;
         console.log(item);
 
-        let result = await fetch("http://localhost:8666/sign-up", {
+        let result = await fetch("http://localhost:5000/signup", {
             method: 'POST',
             body: JSON.stringify(item),
             headers:{

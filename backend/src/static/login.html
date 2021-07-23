@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html>
+  <head>
+	<title>Login Form</title>
+	<link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
+	<style>input[type=submit] {
+		border: 1px solid #f44c0e;
+		color: #fff;
+		background: tomato;
+		padding: 10px 20px;
+		border-radius: 3px;
+		}
+		input[type=submit]:hover {
+			background: #f44c0e;
+		}
+	</style>
+  </head>
+  <body>
+	  	<center>
+			<form action="/login" method="post">
+				<h2>Login</h2>
+				<!-- user input-->
+				Email<br>
+				<input class="w3-input w3-border" style="width:20%; text-align: center;"type="text" name="email" placeholder="Email" required><br><br>
+				Password<br>
+				<input class="w3-input w3-border" style="width:20%; text-align: center;" type="password" name="password" placeholder="Password" required><br><br>
+				<select name="role" id="role-select" class="w3-select" style="width:10%; text-align: center;">
+					<option value="">Select Role</option>
+					<option value="customer">Customer</option>
+					<option value="instructor">Instructor</option>
+				</select>
+				<br><br>
+				<!-- submit button -->
+				<input type="submit" value="LOGIN">
+			</form>
+		</center>
+  </body>
+</html>
